@@ -12,11 +12,11 @@
     msg: "openshift_master_cluster_password must be set for multi-master installations"
   when: openshift_master_ha | bool and not openshift.master.cluster_defer_ha | bool and openshift_master_cluster_password is not defined
 
-- name: Install OpenShift Master package
-  yum: pkg=openshift-master state=present
+- name: Install Atomic Enterprise Master package
+  yum: pkg=atomic-enterprise-master state=present
   register: install_result
 
-- name: Set master OpenShift facts
+- name: Set master Atomic Enterprise facts
   openshift_facts:
     role: master
     local_facts:
@@ -55,7 +55,7 @@
       sdn_host_subnet_length: "{{ osm_host_subnet_length | default(None) }}"
 
 # TODO: These values need to be configurable
-- name: Set dns OpenShift facts
+- name: Set dns Atomic Enterprise facts
   openshift_facts:
     role: dns
     local_facts:
@@ -106,7 +106,7 @@
   notify:
   - restart openshift-master
 
-- name: Configure OpenShift settings
+- name: Configure Atomic Enterprise settings
   lineinfile:
     dest: /etc/sysconfig/openshift-master
     regexp: "{{ item.regex }}"
@@ -141,7 +141,7 @@
   shell: echo {{ openshift_master_cluster_password | quote }} | passwd --stdin hacluster
   when: install_result | changed
 
-- name: Create the OpenShift client config dir(s)
+- name: Create the Atomic Enterprise client config dir(s)
   file:
     path: "~{{ item }}/.kube"
     state: directory
@@ -154,7 +154,7 @@
 
 # TODO: Update this file if the contents of the source file are not present in
 # the dest file, will need to make sure to ignore things that could be added
-- name: Copy the OpenShift admin client config(s)
+- name: Copy the Atomic Enterprise admin client config(s)
   command: cp {{ openshift_master_config_dir }}/admin.kubeconfig ~{{ item }}/.kube/config
   args:
     creates: ~{{ item }}/.kube/config
@@ -162,7 +162,7 @@
   - root
   - "{{ ansible_ssh_user }}"
 
-- name: Update the permissions on the OpenShift admin client config(s)
+- name: Update the permissions on the Atomic Enterprise admin client config(s)
   file:
     path: "~{{ item }}/.kube/config"
     state: file
