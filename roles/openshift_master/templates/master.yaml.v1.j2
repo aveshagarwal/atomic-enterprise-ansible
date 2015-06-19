@@ -87,6 +87,7 @@ networkConfig:
   hostSubnetLength: {{ openshift.master.sdn_host_subnet_length }}
   networkPluginName: {{ openshift.common.sdn_network_plugin_name }}
 {% include 'v1_partials/oauthConfig.j2' %}
+openshiftEnabled: false
 policyConfig:
   bootstrapPolicyFile: {{ openshift_master_policy }}
   openshiftInfrastructureNamespace: openshift-infra
