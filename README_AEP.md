@@ -1,4 +1,4 @@
-# Installing OSEv3 from dev puddles using ansible
+# Installing AEP from dev puddles using ansible
 
 * [Requirements](#requirements)
 * [Caveats](#caveats)
@@ -18,11 +18,11 @@
 * One or more RHEL 7.1 VMs
 * Either ssh key based auth for the root user or ssh key based auth for a user
   with sudo access (no password)
-* A checkout of openshift-ansible from https://github.com/openshift/openshift-ansible/
+* A checkout of atomic-enterprise-ansible from https://github.com/projectatomic/atomic-enterprise-ansible/
 
   ```sh
-  git clone https://github.com/openshift/openshift-ansible.git
-  cd openshift-ansible
+  git clone https://github.com/projectatomic/atomic-enterprise-ansible.git
+  cd atomic-enterprise-ansible
   ```
 
 ## Caveats
