@@ -1,13 +1,13 @@
-# openshift-ansible RPM Build instructions
+# atomic-enterprise-ansible RPM Build instructions
 We use tito to make building and tracking revisions easy.
 
 For more information on tito, please see the [Tito home page](http://rm-rf.ca/tito "Tito home page").
 
 
-## Build openshift-ansible-bin
-- Change into openshift-ansible/bin
+## Build atomic-enterprise-ansible-bin
+- Change into atomic-enterprise-ansible/bin
 ```
-cd openshift-ansible/bin
+cd atomic-enterprise-ansible/bin
 ```
 - Build a test package (no tagging needed)
 ```
@@ -24,10 +24,10 @@ tito build --rpm
 ```
 
 
-## Build openshift-ansible-inventory
-- Change into openshift-ansible/inventory
+## Build atomic-enterprise-ansible-inventory
+- Change into atomic-enterprise-ansible/inventory
 ```
-cd openshift-ansible/inventory
+cd atomic-enterprise-ansible/inventory
 ```
 - Build a test package (no tagging needed)
 ```
